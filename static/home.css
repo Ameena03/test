@@ -1,0 +1,49 @@
+.hero {
+  background-image: url("img/homepage.PNG");
+  height: 600px;
+  padding: 120px;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero .contant {
+  background-color: #1d1d36;
+  width: 450px;
+  color: white;
+  opacity: 0.9;
+}
+
+.middle {
+  height: 100px;
+  background-color: #1d1d36;
+}
+
+.register_to_download {
+  background-color: white;
+  padding: 120px;
+}
+
+
+.center {
+  line-height: 200px;
+height: 200px;
+text-align: center;
+}
+
+.notFound{
+  height: 150px;
+  margin: 125px;
+}
+
+.filter{
+background-color: #203242;
+padding: 80px;
+}
+
+.best .font-size{
+  font-size: 70px;
+  font-weight: bold;
+}

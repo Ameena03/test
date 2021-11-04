@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Blog {{project.id}}
+{% endblock title %} {% block content %}
+<div class="container">
+  <div class="card p-4 mb-4 mt-4 m-5 p-5">
+    <div class="card-body">
+      <div class="card-title pb-2">
+        <div class="row pb-2">
+          <div class="col-1">
+            <img src="{% static 'img/default.png' %}" height="45px" />
+          </div>
+          <div class="col-11 mt-2">
+            <div class="row">
+              <div class="col-5">
+                {{project.p_author}} | {{project.date_add}}
+              </div>
+              <div class="col-7">
+                {% if 'admin' == user.username %}
+                <div class="float-right">
+                <a
+                  class="btn btn-secondary btn-sm"
+                  href="{% url 'posts:post-update' project.id %}"
+                  >Update</a
+                >
+                <a
+                  class="btn btn-danger btn-sm"
+                  href="{% url 'posts:post-delete' project.id %}"
+                  >Delete</a
+                >
+              </div>
+              {% else %}
+
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 class="card-title pb-4">{{project.p_name}}</h3>
+      {% if project.p_img %}
+      <img
+        class="card-img-top mb-4"
+        src="{{ project.p_img.url }}"
+        width="100%"
+      />
+      {% endif %}
+      <p class="card-text pb-3">{{project.p_abstract}}</p>
+      <hr />
+      {% if user.is_authenticated %}
+      <form action="" method="post">
+        {% csrf_token %}
+      <a href="{{project.f_pdf.url}}" class="btn btn-light" id="link" download hidden></a>
+      <button class="btn btn-light" name="increment_download"  onclick="document.getElementById('link').click()">DOWNLOAD PDF</button>
+      </form>
+      {% else %} Can't download PDF file.<a href="{% url 'login' %}">
+        You must login/register</a
+      >
+      {% endif %}
+      <hr />
+      <p class="card-text pb-3">0 views write a comment</p>
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+  function downloaD(url,name) {
+    fetch(url).then(async(res) => {
+      const dfile = await res.blob();
+      var blobURL = 
+    })
+  }
+</script> -->
+{% endblock content %}

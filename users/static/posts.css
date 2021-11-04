@@ -1,0 +1,12 @@
+#div1 {
+    float:left;
+    width:500px;
+    height:100px;
+    text-align:left;
+}
+#div2 {
+    float:left;
+    width:auto;
+    height:100px;
+    text-align:right;
+}

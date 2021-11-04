@@ -1,0 +1,13 @@
+.cover{
+    height: 260px;
+}
+
+.cover-padding {
+    padding-top: 160px; 
+}
+
+.name-padding{
+    padding-left: 10px;
+    padding-top: 40px;
+    color: white;
+}

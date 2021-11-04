@@ -1,0 +1,15 @@
+.center {
+    line-height: 200px;
+  height: 200px;
+  text-align: center;
+  }
+
+  .notFound{
+    height: 150px;
+    margin: 125px;
+  }
+
+.filter{
+  background-color: #203242;
+  padding: 80px;
+}

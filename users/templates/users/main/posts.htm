@@ -1,0 +1,58 @@
+{% extends 'users/profile.htm' %} {% load static %}
+{% block title %} Posts {% endblock title %}
+{% block profileContent %}
+<link href="{% static 'posts.css'%}" rel="stylesheet" />
+<div class="container p-5">
+  <div class="row">
+    <div class="col-6"><p class="h3">Blog Posts</p></div>
+    <div class="col-6 text-right">
+      <a href="{% url 'createPost' %}"
+        ><button
+          type="button"
+          class="btn btn-light"
+          data-toggle="modal"
+          data-target=".bd-example-modal-lg"
+        >
+          Create Post
+        </button></a
+      >
+    </div>
+  </div>
+{% for  view_Project in view_Project%}
+<div class="card  mb-4 mt-4">
+  {% if view_Project.p_img %}
+  <a href="{% url 'posts:post_detail' view_Project.id %}">
+    <img class="card-img-top" src="{{ view_Project.p_img.url }}" width="100%">
+  </a>
+  {% endif %}
+    <div class="card-body p-5">
+      <div class="card-title pb-2">
+          <div class="row pb-2">
+              <div class="col-1"><img src="{% static 'img/default.png' %}" height="45px"></div>
+              <div class="col-11">
+                  <div class="row">
+                      <div class="col">
+                          {{view_Project.p_author}}
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">{{view_Project.date_add}}</div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <a href="{% url 'posts:post_detail' view_Project.id %}">
+        <h3 class="card-title pb-4">
+            {{view_Project.p_name}}
+        </h3>
+      <p class="card-text pb-3">{{view_Project.p_abstract}}</p>
+    </a>
+      <hr>
+      <p class="card-text pb-3">0 views write a comment</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock profileContent %}
+

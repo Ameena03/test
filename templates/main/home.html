@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Home {% endblock title %} {% block content %}
+<link rel="stylesheet" href="{% static 'home.css' %}" />
+
+<div class="hero">
+  <div class="contant p-5">
+    <p class="h1">Faculty of IT</p>
+    <p class="h4 pt-2 pb-3">Welcome to IT Project Knowledge</p>
+    <a href="{% url 'search' %}"
+      ><button type="button" class="btn btn-danger">search project</button></a
+    >
+  </div>
+</div>
+<div class="middle"></div>
+
+<div class="register_to_download">
+  <div class="best pb-5">
+    <p class="font-size text-center">BEST DOWNLOAD PROJECT</p>
+  </div>
+ 
+  <div class="card-deck">
+    {% for p in best_download %}
+    <div class="card">
+      {% if p.p_img %}
+      <a href="{% url 'posts:post_detail' p.id %}">
+        <img class="card-img-top" src="{{ p.p_img.url }}" height="200px" />
+      </a>
+      {% else %}
+      <div class="center text-center">ไม่มีรูป</div>
+      {% endif %}
+      <div class="card-body">
+        <h6 class="card-title">
+          <div class="row pb-2">
+            <div class="col-3">
+              <img src="{% static 'img/default.png' %}" height="45px" />
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col h6">{{p.p_author}}</div>
+              </div>
+              <div class="row">
+                <div class="col h6">{{p.p_date}}</div>
+              </div>
+            </div>
+          </div>
+        </h6>
+        <a href="{% url 'posts:post_detail' p.id %}">
+          <h3 class="card-title pb-2 h4">{{p.p_name}}</h3>
+          <p class="card-text pb-3 h6">{{p.p_abstract}}</p>
+        </a>  
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

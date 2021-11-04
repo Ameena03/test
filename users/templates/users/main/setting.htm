@@ -1,0 +1,19 @@
+{% extends 'users/profile.htm' %}{% load static %} {% load crispy_forms_tags %}
+{% block title %} Settings {% endblock title %} {% block profileContent %}
+<link href="{% static 'setting.css'%}" rel="stylesheet" />
+<div class="container">
+  <div class="setting">
+    <div class="h3">Settings</div>
+    <hr />
+    <div class="row">
+      <div class="col"><div class="h5 mt-2 mb-3">Profile Edit</div></div>
+    </div>
+    {% block updateForm %} {% endblock %}
+    <hr />
+    <div class="row">
+      <div class="col"><a href="{% url 'logout' %}">ออกจากระบบ</a></div>
+    </div>
+    <hr>
+  </div>
+</div>
+{% endblock profileContent %}

@@ -1,0 +1,14 @@
+.footer{
+    height: 400px;
+    background-color: #1d1d36;
+    color: white;
+}
+
+.footer-bottom{
+    height: 50px;
+    background-color: white;
+}
+
+.footer a{
+    color: rgb(228, 222, 222);
+}

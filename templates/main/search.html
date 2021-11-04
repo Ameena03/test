@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Search {% endblock title %} {% block content %}
+<link rel="stylesheet" href="{% static 'search.css' %}" />
+<div class="container mt-5">
+<div class="filter">
+<form method="GET" action="{% url 'search' %}">
+        <div class="form-row">
+            <div class="form-group col-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="title" placeholder="หัวข้อ" />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div>
+        {% comment %} <div class="form-row">
+            <div class="form-group col-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="author" placeholder="ชื่อผู้เขียน" />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div> {% endcomment %}
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <select id="category" class="form-control" name="category">
+              <option selected>ปี</option>
+              {% for v in v_project %}
+              <option value="{{ v.p_date }}">{{ v.p_date }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        <button type="submit"class="btn btn-primary">Search</button>
+      </form>
+
+  </div>
+  </div>
+{% if p_project %}
+<div class="container">
+  {% for p in p_project %}
+  <div class="card p-4 mb-4 mt-4">
+    <div class="row">
+      <div class="col-4">
+        {% if p.p_img %}
+        <a href="{% url 'posts:post_detail' p.id %}">
+          <img class="card-img-top" src="{{ p.p_img.url }}" width="100%" />
+        </a>
+        {% else %}
+        <div class="center text-center">ไม่มีรูป</div>
+        {% endif %}
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <div class="card-title pb-2">
+            <div class="row pb-2">
+              <div class="col-1">
+                <img src="{% static 'img/default.png' %}" height="45px" />
+              </div>
+              <div class="col-11">
+                <div class="row">
+                  <div class="col">{{p.p_author}}</div>
+                </div>
+                <div class="row">
+                  <div class="col">{{p.p_date}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="{% url 'posts:post_detail' p.id %}">
+            <h3 class="card-title pb-4">{{p.p_name}}</h3>
+            <p class="card-text pb-3">{{p.p_abstract}}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="container">
+  <div class="notFound">
+    <div class="card text-center p-5">Not Found</div>
+  </div>
+</div>
+{% endif %}
+      
+{% endblock %}

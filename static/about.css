@@ -1,0 +1,70 @@
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.OUR-faculty-of-it{
+    height: 300px;
+    padding-top: 70px;
+    margin-bottom: 70px;
+}
+
+.OUR-faculty-of-it .font-size{
+    font-size: 72px;
+    font-weight: bold;
+}
+.values{
+    background-color: #1d1d36;
+    color: white;
+}
+
+.col-6 .center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Principal{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+}
+
+.vision {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.staff{
+    height: 300px;
+    padding-top: 70px;
+    margin-bottom: 70px;
+}
+
+.staff .font-size{
+    font-size: 72px;
+    font-weight: bold;
+}
+
+.position-img{
+    padding: 50px;
+}
+
+.contact-padding{
+    padding: 100px;
+}
+
+.download .font-size{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+}
+
+.position-img2 {
+    padding: 25px;
+}

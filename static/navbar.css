@@ -1,0 +1,25 @@
+.bg-colors {
+    background-color: #1d1d36;
+}
+
+a{
+    color: black;
+}
+
+.btn-dropdown{
+    margin-top: -20px;   
+}
+.img_dropdown{
+    width: 25px;
+}
+
+.img_size_30{
+    width: 25px;
+    margin-top: -20px;
+}
+.material-icons.md-30 { font-size: 25px; }
+
+.search-bar{
+    max-width: 300px;
+    width: 100%;
+}

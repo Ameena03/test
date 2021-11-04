@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+{% block title %} Profile {% endblock title %}
+{% load static %} {% block content %}
+<link href="{% static 'profile.css'%}" rel="stylesheet" />
+{% for view_p in view_profile %}
+<div class="container pb-5 pl-5 pr-5">
+  <div class="cover pl-5">
+    <div class="row cover-padding" 
+    style="background-image: url({{view_p.cover.url}});background-size: cover;"
+    >
+      <div class="col-1">
+        <img
+          src="{{view_p.image.url}}"
+          class="rounded-circle account-img"
+          style="height: 100px; width: 100px"
+        />
+      </div>
+      <div class="col-11">
+        <div class="row name-padding">
+          <div class="pl-5 col-8">
+            <div>{{view_p.full_name}}</div>
+            <p class="h6">0 Followers 0 Following</p>
+          </div>
+          <div class="col-4 text-right pr-5">
+            <a href="{% url 'profiles:settings' user.id %}">
+            <button type="button" class="btn btn-light">
+              Edit Profile
+            </button>
+          </a>
+          </div>
+      </div>
+      
+    </div>
+    </div>
+  
+  </div>
+  <ul class="nav justify-content-center  mt-2 mb-2">
+    {% if user.is_authenticated %}
+      {% if 'admin' == user.username %}
+      <li class="nav-item pl-2 pr-2">
+        <a class="nav-link active" href="{% url 'profiles:profile_default' user.id %}">Profile</a>
+      </li>
+          <li class="nav-item pl-2 pr-2">
+            <a class="nav-link" href="{% url 'posts:post_list' %}">Blog Posts</a>
+          </li>
+          <li class="nav-item pl-2 pr-2">
+            <a class="nav-link" href="{% url 'profiles:settings' user.id %}">Settings</a>
+          </li>
+          {% else %}
+          <li class="nav-item pl-2 pr-2">
+            <a class="nav-link active" href="{% url 'profiles:profile_default' user.id %}">Profile</a>
+          </li>
+          <li class="nav-item pl-2 pr-2">
+            <a class="nav-link" href="{% url 'profiles:settings' user.id  %}">Settings</a>
+          </li>
+      {% endif %}
+    {% endif %}
+  </ul>
+  {% endfor %}
+  {% block profileContent %}
+    
+  {% endblock profileContent %}
+
+
+
+
+
+</div>
+
+{% endblock content %}

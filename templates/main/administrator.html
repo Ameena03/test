@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% load static %}
+{% block title %} Administrator {% endblock title %}
+ {% block content %}
+<link rel="stylesheet" href="{% static 'about.css' %}" />
+<div class="container pb-5">
+  <div class="OUR-faculty-of-it">
+    <p class="font-size text-center">administrator</p>
+    <p class="h6 w-50 center text-center">
+      Administrators must log in. To manage project information by adding, deleting, editing, etc.
+    </p>
+  </div>
+
+<div class="download">
+    <p class="font-size">Top 5 BEST DOWNLOAD</p>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Rating</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for rating_download in best_download %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{rating_download.p_name}}</td>
+      <td>{{rating_download.p_author}}</td>
+      <td>{{rating_download.count_download}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+</div>
+{% endblock content %}
